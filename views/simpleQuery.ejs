@@ -1,0 +1,422 @@
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<form action="/simpleQuery" method="post">
+<label for="area_select">Location</label>
+<select id="area_select" data-placeholder="e.g. Tribeca, Upper West Side, Clinton Hill" name="area[]" style='width: 450px;' size='1' multiple='true' se:behavior="selector" se:selector:linkmore="#area_select_more"><option class='indent_0'  value='1'>NYC</option>
+<option class=' area_high_level'  value='100'>Manhattan</option>
+<option class='indent_2'  value='102'>All Downtown</option>
+<option class='indent_3'  value='112'>Battery Park City</option>
+<option class='indent_3'  value='115'>Chelsea</option>
+<option class='indent_4'  value='163'>West Chelsea</option>
+<option class='indent_3'  value='110'>Chinatown</option>
+<option class='indent_4'  value='111'>Two Bridges</option>
+<option class='indent_3'  value='103'>Civic Center</option>
+<option class='indent_3'  value='117'>East Village</option>
+<option class='indent_3'  value='104'>Financial District</option>
+<option class='indent_3'  value='158'>Flatiron</option>
+<option class='indent_4'  value='159'>NoMad</option>
+<option class='indent_3'  value='114'>Fulton/Seaport</option>
+<option class='indent_3'  value='113'>Gramercy Park</option>
+<option class='indent_3'  value='116'>Greenwich Village</option>
+<option class='indent_4'  value='118'>Noho</option>
+<option class='indent_3'  value='108'>Little Italy</option>
+<option class='indent_3'  value='109'>Lower East Side</option>
+<option class='indent_3'  value='162'>Nolita</option>
+<option class='indent_3'  value='107'>Soho</option>
+<option class='indent_3'  value='106'>Stuyvesant Town/PCV</option>
+<option class='indent_3'  value='105'>Tribeca</option>
+<option class='indent_3'  value='157'>West Village</option>
+<option class='indent_2'  value='119'>All Midtown</option>
+<option class='indent_3'  value='121'>Central Park South</option>
+<option class='indent_3'  value='120'>Midtown</option>
+<option class='indent_3'  value='123'>Midtown East</option>
+<option class='indent_4'  value='133'>Kips Bay</option>
+<option class='indent_4'  value='130'>Murray Hill</option>
+<option class='indent_4'  value='131'>Sutton Place</option>
+<option class='indent_4'  value='132'>Turtle Bay</option>
+<option class='indent_5'  value='134'>Beekman</option>
+<option class='indent_3'  value='122'>Midtown South</option>
+<option class='indent_3'  value='124'>Midtown West</option>
+<option class='indent_2'  value='139'>All Upper East Side</option>
+<option class='indent_3'  value='143'>Carnegie Hill</option>
+<option class='indent_3'  value='141'>Lenox Hill</option>
+<option class='indent_3'  value='164'>Upper Carnegie Hill</option>
+<option class='indent_3'  value='140'>Upper East Side: 72nd to 86th</option>
+<option class='indent_3'  value='142'>Yorkville</option>
+<option class='indent_2'  value='144'>All Upper Manhattan</option>
+<option class='indent_3'  value='154'>Central Harlem</option>
+<option class='indent_3'  value='155'>East Harlem</option>
+<option class='indent_3'  value='148'>Hamilton Heights</option>
+<option class='indent_3'  value='150'>Inwood</option>
+<option class='indent_3'  value='161'>Manhattanville</option>
+<option class='indent_3'  value='149'>Washington Heights</option>
+<option class='indent_4'  value='151'>Fort George</option>
+<option class='indent_4'  value='145'>Hudson Heights</option>
+<option class='indent_3'  value='153'>West Harlem</option>
+<option class='indent_2'  value='135'>All Upper West Side</option>
+<option class='indent_3'  value='136'>Lincoln Square</option>
+<option class='indent_3'  value='138'>Manhattan Valley</option>
+<option class='indent_3'  value='147'>Morningside Heights</option>
+<option class='indent_3'  value='137'>Upper West Side: 72nd to 110th</option>
+<option class='indent_2'  value='101'>Roosevelt Island</option>
+<option class=' area_high_level'  value='300'>Brooklyn</option>
+<option class='indent_2'  value='336'>Bath Beach</option>
+<option class='indent_2'  value='331'>Bay Ridge</option>
+<option class='indent_3'  value='333'>Fort Hamilton</option>
+<option class='indent_2'  value='310'>Bedford-Stuyvesant</option>
+<option class='indent_3'  value='353'>Ocean Hill</option>
+<option class='indent_3'  value='312'>Stuyvesant Heights</option>
+<option class='indent_2'  value='334'>Bensonhurst</option>
+<option class='indent_2'  value='363'>Bergen Beach</option>
+<option class='indent_2'  value='306'>Boerum Hill</option>
+<option class='indent_2'  value='338'>Borough Park</option>
+<option class='indent_3'  value='335'>Mapleton</option>
+<option class='indent_2'  value='342'>Brighton Beach</option>
+<option class='indent_2'  value='305'>Brooklyn Heights</option>
+<option class='indent_2'  value='354'>Brownsville</option>
+<option class='indent_2'  value='313'>Bushwick</option>
+<option class='indent_2'  value='359'>Canarsie</option>
+<option class='indent_2'  value='321'>Carroll Gardens</option>
+<option class='indent_2'  value='364'>Clinton Hill</option>
+<option class='indent_2'  value='322'>Cobble Hill</option>
+<option class='indent_2'  value='328'>Columbia St Waterfront District</option>
+<option class='indent_2'  value='341'>Coney Island</option>
+<option class='indent_2'  value='325'>Crown Heights</option>
+<option class='indent_3'  value='327'>Weeksville</option>
+<option class='indent_2'  value='307'>DUMBO</option>
+<option class='indent_3'  value='308'>Vinegar Hill</option>
+<option class='indent_2'  value='343'>Ditmas Park</option>
+<option class='indent_3'  value='352'>Fiske Terrace</option>
+<option class='indent_2'  value='303'>Downtown Brooklyn</option>
+<option class='indent_2'  value='332'>Dyker Heights</option>
+<option class='indent_2'  value='314'>East New York</option>
+<option class='indent_3'  value='316'>City Line</option>
+<option class='indent_3'  value='315'>New Lots</option>
+<option class='indent_2'  value='346'>Flatbush</option>
+<option class='indent_2'  value='360'>Flatlands</option>
+<option class='indent_2'  value='304'>Fort Greene</option>
+<option class='indent_2'  value='370'>Gerritsen Beach</option>
+<option class='indent_2'  value='320'>Gowanus</option>
+<option class='indent_2'  value='337'>Gravesend</option>
+<option class='indent_2'  value='301'>Greenpoint</option>
+<option class='indent_2'  value='367'>Greenwood</option>
+<option class='indent_2'  value='340'>Kensington</option>
+<option class='indent_2'  value='350'>Manhattan Beach</option>
+<option class='indent_2'  value='361'>Marine Park</option>
+<option class='indent_2'  value='348'>Midwood</option>
+<option class='indent_2'  value='362'>Mill Basin</option>
+<option class='indent_2'  value='358'>Northeast Flatbush</option>
+<option class='indent_3'  value='309'>Farragut</option>
+<option class='indent_3'  value='330'>Wingate</option>
+<option class='indent_2'  value='339'>Ocean Parkway</option>
+<option class='indent_2'  value='365'>Old Mill Basin</option>
+<option class='indent_2'  value='319'>Park Slope</option>
+<option class='indent_2'  value='326'>Prospect Heights</option>
+<option class='indent_2'  value='329'>Prospect Lefferts Gardens</option>
+<option class='indent_2'  value='355'>Prospect Park South</option>
+<option class='indent_2'  value='318'>Red Hook</option>
+<option class='indent_2'  value='345'>Seagate</option>
+<option class='indent_2'  value='349'>Sheepshead Bay</option>
+<option class='indent_3'  value='344'>Homecrest</option>
+<option class='indent_3'  value='366'>Madison</option>
+<option class='indent_2'  value='317'>Starrett City</option>
+<option class='indent_2'  value='323'>Sunset Park</option>
+<option class='indent_2'  value='302'>Williamsburg</option>
+<option class='indent_2'  value='324'>Windsor Terrace</option>
+<option class=' area_high_level'  value='400'>Queens</option>
+<option class='indent_2'  value='475'>Alley Park</option>
+<option class='indent_2'  value='401'>Astoria</option>
+<option class='indent_2'  value='431'>Auburndale</option>
+<option class='indent_2'  value='428'>Bayside</option>
+<option class='indent_3'  value='480'>Bay Terrace (Queens)</option>
+<option class='indent_2'  value='443'>Bellerose</option>
+<option class='indent_2'  value='458'>Bowne Park</option>
+<option class='indent_2'  value='446'>Briarwood</option>
+<option class='indent_2'  value='479'>Brookville</option>
+<option class='indent_2'  value='437'>Cambria Heights</option>
+<option class='indent_2'  value='459'>Clearview</option>
+<option class='indent_2'  value='418'>College Point</option>
+<option class='indent_2'  value='409'>Corona</option>
+<option class='indent_2'  value='474'>Ditmars-Steinway</option>
+<option class='indent_2'  value='429'>Douglaston</option>
+<option class='indent_2'  value='406'>East Elmhurst</option>
+<option class='indent_2'  value='456'>East Flushing</option>
+<option class='indent_2'  value='408'>Elmhurst</option>
+<option class='indent_2'  value='442'>Floral Park</option>
+<option class='indent_2'  value='416'>Flushing</option>
+<option class='indent_2'  value='415'>Forest Hills</option>
+<option class='indent_2'  value='419'>Fresh Meadows</option>
+<option class='indent_2'  value='439'>Glen Oaks Village</option>
+<option class='indent_2'  value='413'>Glendale</option>
+<option class='indent_2'  value='453'>Hillcrest</option>
+<option class='indent_2'  value='434'>Hollis</option>
+<option class='indent_2'  value='425'>Howard Beach</option>
+<option class='indent_3'  value='467'>Hamilton Beach</option>
+<option class='indent_3'  value='472'>Howard Park</option>
+<option class='indent_3'  value='470'>Lindenwood</option>
+<option class='indent_3'  value='471'>Old Howard Beach</option>
+<option class='indent_3'  value='468'>Ramblersville</option>
+<option class='indent_3'  value='469'>Rockwood Park</option>
+<option class='indent_2'  value='405'>Jackson Heights</option>
+<option class='indent_2'  value='432'>Jamaica</option>
+<option class='indent_2'  value='447'>Jamaica Estates</option>
+<option class='indent_2'  value='421'>Jamaica Hills</option>
+<option class='indent_2'  value='424'>Kew Gardens</option>
+<option class='indent_2'  value='420'>Kew Gardens Hills</option>
+<option class='indent_2'  value='436'>Laurelton</option>
+<option class='indent_2'  value='430'>Little Neck</option>
+<option class='indent_2'  value='402'>Long Island City</option>
+<option class='indent_3'  value='478'>Hunters Point</option>
+<option class='indent_2'  value='410'>Maspeth</option>
+<option class='indent_2'  value='411'>Middle Village</option>
+<option class='indent_2'  value='457'>Murray Hill (Queens)</option>
+<option class='indent_2'  value='449'>New Hyde Park</option>
+<option class='indent_2'  value='407'>North Corona</option>
+<option class='indent_2'  value='451'>Oakland Gardens</option>
+<option class='indent_2'  value='426'>Ozone Park</option>
+<option class='indent_2'  value='454'>Pomonok</option>
+<option class='indent_2'  value='438'>Queens Village</option>
+<option class='indent_2'  value='476'>Queensboro Hill</option>
+<option class='indent_2'  value='414'>Rego Park</option>
+<option class='indent_2'  value='423'>Richmond Hill</option>
+<option class='indent_2'  value='412'>Ridgewood</option>
+<option class='indent_2'  value='477'>Rockaway All</option>
+<option class='indent_3'  value='448'>Arverne</option>
+<option class='indent_3'  value='462'>Bayswater</option>
+<option class='indent_3'  value='463'>Belle Harbor</option>
+<option class='indent_3'  value='464'>Breezy Point</option>
+<option class='indent_3'  value='441'>Broad Channel</option>
+<option class='indent_3'  value='466'>Edgemere</option>
+<option class='indent_3'  value='440'>Far Rockaway</option>
+<option class='indent_3'  value='473'>Hammels</option>
+<option class='indent_3'  value='465'>Neponsit</option>
+<option class='indent_3'  value='452'>Rockaway Park</option>
+<option class='indent_2'  value='444'>Rosedale</option>
+<option class='indent_2'  value='433'>South Jamaica</option>
+<option class='indent_2'  value='427'>South Ozone Park</option>
+<option class='indent_2'  value='450'>South Richmond Hill</option>
+<option class='indent_2'  value='445'>Springfield Gardens</option>
+<option class='indent_2'  value='435'>St. Albans</option>
+<option class='indent_2'  value='403'>Sunnyside</option>
+<option class='indent_2'  value='455'>Utopia</option>
+<option class='indent_2'  value='417'>Whitestone</option>
+<option class='indent_3'  value='461'>Beechhurst</option>
+<option class='indent_3'  value='460'>Malba</option>
+<option class='indent_2'  value='422'>Woodhaven</option>
+<option class='indent_2'  value='404'>Woodside</option>
+<option class=' area_high_level'  value='200'>Bronx</option>
+<option class='indent_2'  value='243'>Baychester</option>
+<option class='indent_2'  value='221'>Bedford Park</option>
+<option class='indent_2'  value='218'>Belmont</option>
+<option class='indent_2'  value='265'>Bronxwood</option>
+<option class='indent_2'  value='229'>Castle Hill</option>
+<option class='indent_2'  value='236'>City Island</option>
+<option class='indent_2'  value='234'>Co-op City</option>
+<option class='indent_2'  value='211'>Concourse</option>
+<option class='indent_2'  value='273'>Country Club</option>
+<option class='indent_2'  value='209'>Crotona Park East</option>
+<option class='indent_2'  value='216'>East Tremont</option>
+<option class='indent_3'  value='219'>West Farms</option>
+<option class='indent_2'  value='246'>Eastchester</option>
+<option class='indent_2'  value='276'>Edenwald</option>
+<option class='indent_2'  value='214'>Fordham</option>
+<option class='indent_2'  value='210'>Highbridge</option>
+<option class='indent_2'  value='204'>Hunts Point</option>
+<option class='indent_2'  value='224'>Kingsbridge</option>
+<option class='indent_3'  value='220'>Kingsbridge Heights</option>
+<option class='indent_2'  value='241'>Laconia</option>
+<option class='indent_2'  value='205'>Longwood</option>
+<option class='indent_2'  value='226'>Marble Hill</option>
+<option class='indent_2'  value='202'>Melrose</option>
+<option class='indent_2'  value='212'>Morris Heights</option>
+<option class='indent_2'  value='237'>Morris Park</option>
+<option class='indent_2'  value='207'>Morrisania</option>
+<option class='indent_3'  value='208'>Claremont</option>
+<option class='indent_2'  value='201'>Mott Haven</option>
+<option class='indent_2'  value='271'>North New York</option>
+<option class='indent_2'  value='260'>Norwood</option>
+<option class='indent_2'  value='231'>Parkchester</option>
+<option class='indent_2'  value='233'>Pelham Bay</option>
+<option class='indent_2'  value='266'>Pelham Gardens</option>
+<option class='indent_2'  value='238'>Pelham Parkway</option>
+<option class='indent_3'  value='239'>Bronxdale</option>
+<option class='indent_2'  value='225'>Riverdale</option>
+<option class='indent_3'  value='227'>Fieldston</option>
+<option class='indent_3'  value='249'>Spuyten Duyvil</option>
+<option class='indent_2'  value='274'>Schuylerville</option>
+<option class='indent_2'  value='228'>Soundview</option>
+<option class='indent_2'  value='232'>Throgs Neck</option>
+<option class='indent_3'  value='267'>Locust Point</option>
+<option class='indent_2'  value='248'>Tremont</option>
+<option class='indent_3'  value='215'>Mt. Hope</option>
+<option class='indent_2'  value='213'>University Heights</option>
+<option class='indent_2'  value='240'>Van Nest</option>
+<option class='indent_2'  value='245'>Wakefield</option>
+<option class='indent_2'  value='272'>Westchester Village</option>
+<option class='indent_3'  value='235'>Westchester Square</option>
+<option class='indent_2'  value='242'>Williamsbridge</option>
+<option class='indent_2'  value='244'>Woodlawn</option>
+<option class='indent_2'  value='270'>Woodstock</option>
+<option class=' area_high_level'  value='500'>Staten Island</option>
+<option class='indent_2'  value='503'>East Shore</option>
+<option class='indent_3'  value='510'>Arrochar</option>
+<option class='indent_3'  value='511'>Bay Terrace</option>
+<option class='indent_3'  value='521'>Concord</option>
+<option class='indent_3'  value='522'>Dongan Hills</option>
+<option class='indent_3'  value='523'>Egbertville</option>
+<option class='indent_3'  value='526'>Emerson Hill</option>
+<option class='indent_3'  value='527'>Fort Wadsworth</option>
+<option class='indent_3'  value='529'>Grant City</option>
+<option class='indent_3'  value='530'>Grasmere</option>
+<option class='indent_3'  value='536'>High Rock</option>
+<option class='indent_3'  value='540'>Lighthouse Hill</option>
+<option class='indent_3'  value='542'>Lower Todt Hill</option>
+<option class='indent_3'  value='546'>Midland Beach</option>
+<option class='indent_3'  value='548'>New Dorp</option>
+<option class='indent_3'  value='591'>New Dorp Beach</option>
+<option class='indent_3'  value='550'>Oakwood</option>
+<option class='indent_3'  value='592'>Oakwood Beach</option>
+<option class='indent_3'  value='551'>Ocean Breeze</option>
+<option class='indent_3'  value='552'>Old Town</option>
+<option class='indent_3'  value='561'>Richmondtown</option>
+<option class='indent_3'  value='568'>South Beach</option>
+<option class='indent_3'  value='575'>Todt Hill</option>
+<option class='indent_2'  value='505'>Mid-Island</option>
+<option class='indent_3'  value='514'>Bulls Head</option>
+<option class='indent_3'  value='516'>Castleton Corners</option>
+<option class='indent_3'  value='520'>Clove Lakes</option>
+<option class='indent_3'  value='528'>Graniteville</option>
+<option class='indent_3'  value='535'>Heartland Village</option>
+<option class='indent_3'  value='539'>La Tourette</option>
+<option class='indent_3'  value='545'>Meiers Corners</option>
+<option class='indent_3'  value='549'>New Springville</option>
+<option class='indent_3'  value='564'>Royal Oak</option>
+<option class='indent_3'  value='573'>Sunnyside</option>
+<option class='indent_3'  value='582'>Westerleigh</option>
+<option class='indent_3'  value='583'>Willowbrook</option>
+<option class='indent_2'  value='501'>North Shore</option>
+<option class='indent_3'  value='509'>Arlington</option>
+<option class='indent_3'  value='513'>Brighton Heights</option>
+<option class='indent_3'  value='519'>Clifton</option>
+<option class='indent_3'  value='524'>Elm Park</option>
+<option class='indent_3'  value='594'>Fox Hills</option>
+<option class='indent_3'  value='533'>Grymes Hill</option>
+<option class='indent_3'  value='537'>Howland Hook</option>
+<option class='indent_3'  value='541'>Livingston</option>
+<option class='indent_3'  value='543'>Manor Heights</option>
+<option class='indent_3'  value='544'>Mariners Harbor</option>
+<option class='indent_3'  value='547'>New Brighton</option>
+<option class='indent_3'  value='553'>Park Hill</option>
+<option class='indent_3'  value='555'>Port Ivory</option>
+<option class='indent_3'  value='556'>Port Richmond</option>
+<option class='indent_3'  value='559'>Randall Manor</option>
+<option class='indent_3'  value='562'>Rosebank</option>
+<option class='indent_3'  value='569'>Saint George</option>
+<option class='indent_3'  value='570'>Saint Pauls</option>
+<option class='indent_3'  value='565'>Shore Acres</option>
+<option class='indent_3'  value='566'>Silver Lake</option>
+<option class='indent_3'  value='567'>Snug Harbor</option>
+<option class='indent_3'  value='571'>Stapleton</option>
+<option class='indent_3'  value='572'>Stapleton Heights</option>
+<option class='indent_3'  value='574'>Sunset Hill</option>
+<option class='indent_3'  value='576'>Tompkinsville</option>
+<option class='indent_3'  value='579'>Ward Hill</option>
+<option class='indent_3'  value='580'>West Brighton</option>
+<option class='indent_3'  value='581'>West New Brighton</option>
+<option class='indent_2'  value='502'>South Shore</option>
+<option class='indent_3'  value='507'>Annadale</option>
+<option class='indent_3'  value='508'>Arden Heights</option>
+<option class='indent_3'  value='515'>Butler Manor</option>
+<option class='indent_3'  value='517'>Charleston</option>
+<option class='indent_3'  value='525'>Eltingville</option>
+<option class='indent_3'  value='531'>Great Kills</option>
+<option class='indent_3'  value='532'>Greenridge</option>
+<option class='indent_3'  value='538'>Huguenot</option>
+<option class='indent_3'  value='590'>Huguenot Beach</option>
+<option class='indent_3'  value='593'>Mount Loretto</option>
+<option class='indent_3'  value='595'>Old Place</option>
+<option class='indent_3'  value='554'>Pleasant Plains</option>
+<option class='indent_3'  value='557'>Princes Bay</option>
+<option class='indent_3'  value='560'>Richmond Valley</option>
+<option class='indent_3'  value='563'>Rossville</option>
+<option class='indent_3'  value='596'>Sandy Ground</option>
+<option class='indent_3'  value='577'>Tottenville</option>
+<option class='indent_3'  value='598'>Tottenville Beach</option>
+<option class='indent_3'  value='584'>Woodrow</option>
+<option class='indent_2'  value='504'>West Shore</option>
+<option class='indent_3'  value='512'>Bloomfield</option>
+<option class='indent_3'  value='518'>Chelsea (Staten Island)</option>
+<option class='indent_3'  value='597'>The Teleport</option>
+<option class='indent_3'  value='578'>Travis</option></select>
+<label for="price_from"> Price </label>
+    <select id="price_from" name="price_from">
+        <option value="">Any</option>
+        <option value="Custom">&raquo; Custom</option>
+        <option value="500">$500</option>
+        <option value="750">$750</option>
+        <option value="1000">$1,000</option>
+        <option value="1250">$1,250</option>
+        <option value="1500">$1,500</option>
+        <option value="1750">$1,750</option>
+        <option value="2000">$2,000</option>
+        <option value="2500">$2,500</option>
+        <option value="3000">$3,000</option>
+        <option value="3500">$3,500</option>
+        <option value="4000">$4,000</option>
+        <option value="4500">$4,500</option>
+        <option value="5000">$5,000</option>
+        <option value="6000">$6,000</option>
+        <option value="7000">$7,000</option>
+        <option value="8000">$8,000</option>
+        <option value="9000">$9,000</option>
+        <option value="10000">$10,000</option>
+        <option value="12500">$12,500</option>
+        <option value="15000">$15,000</option>
+    </select>
+    To <select id="price_to" name='price_to' >
+        <option value="">Any</option>
+        <option value="Custom">&raquo; Custom</option>
+        <option value="500">$500</option>
+        <option value="750">$750</option>
+        <option value="1000">$1,000</option>
+        <option value="1250">$1,250</option>
+        <option value="1500">$1,500</option>
+        <option value="1750">$1,750</option>
+        <option value="2000">$2,000</option>
+        <option value="2500">$2,500</option>
+        <option value="3000">$3,000</option>
+        <option value="3500">$3,500</option>
+        <option value="4000">$4,000</option>
+        <option value="4500">$4,500</option>
+        <option value="5000">$5,000</option>
+        <option value="6000">$6,000</option>
+        <option value="7000">$7,000</option>
+        <option value="8000">$8,000</option>
+        <option value="9000">$9,000</option>
+        <option value="10000">$10,000</option>
+        <option value="12500">$12,500</option>
+        <option value="15000">$15,000</option>
+    </select>
+    <label for='beds'>Bedrooms</label>
+    <select name='beds' id='beds'>
+        <option value="">Any</option>
+        <option value="&lt;1">Studio only</option>
+        <option value="&lt;=1">Studio / 1 br</option>
+        <option value="1">1 bedroom</option>
+        <option value="2">2 bedrooms</option>
+        <option value="3">3 bedrooms</option>
+        <option value="4">4 bedrooms</option>
+    </select>
+<label for='baths'>Bathrooms</label>
+<select name='baths' id='baths'>
+    <option value="">Any</option>
+    <option value="&gt;=1">1 or more</option>
+    <option value="&gt;=1.5">1.5 or more</option>
+    <option value="&gt;=2">2 or more</option>
+    <option value="&gt;=2.5">2.5 or more</option>
+    <option value="&gt;=3">3 or more</option>
+    <option value="&gt;=3.5">3.5 or more</option>
+    <option value="&gt;=4">4 or more</option>
+</select>
+<input type='submit' name='Submit' value='Submit' style='width:72px' />
+</form>

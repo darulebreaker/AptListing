@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="listingApp">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+      <script src="/javascripts/angular.js"></script>
+  </head>
+  <script>
+
+      var listing = angular.module('listingApp', []);
+
+      listing.controller('ListCtrl', function ($scope) {
+          $scope.entries = <%- JSON.stringify(list)%>
+      });
+
+  </script>
+  <body ng-controller="ListCtrl">
+    <%- body %>
+  </body>
+</html>

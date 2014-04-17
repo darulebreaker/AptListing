@@ -1,0 +1,29 @@
+
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <!--Sidebar content-->
+
+            Search: <input ng-model="query">
+
+        </div>
+        <div class="span10">
+            <h3>Listing <%= count %></h3>
+            <table class="table table-striped">
+                <tr>  <td>Address</td> <td>Detail</td>
+                <tr ng-repeat="entry in entries | orderBy:'detail'">
+                    <td> {{entry.address}}</td>
+                    <td> {{entry.detail}}</td>
+
+
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+</div>
