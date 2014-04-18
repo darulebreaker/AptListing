@@ -24,7 +24,7 @@ function download(url, callback) {
 
 
 
-function extract (url,callback) {
+function extract (url) {
     download(url, function(data, callback) {
 
         if (data) {
@@ -138,7 +138,7 @@ function extract (url,callback) {
 
 
                             }
-                            callback(null,null);
+
                         });
 
 
@@ -156,3 +156,4 @@ function extract (url,callback) {
 
 
 exports.extract=extract;
+exports.download=download;
