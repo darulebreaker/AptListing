@@ -37,28 +37,61 @@ app.get('/', function(req, res){
 
 app.post('/simpleQuery', function(req, res){
 
-    var area= req.body.area_select;
+    var area= req.body.area;
+
     var price_from = req.body.price_from;
     var price_to = req.body.price_to;
     var beds = req.body.beds;
     var baths = req.body.baths;
+    var page = req.body.page;
+    if(page == undefined) page=1;
+    else {
+        if(page<=0) page=1;
+    }
+    var listCount=req.body.listCount;
+    if(listCount==undefined){
+        listCount=1
+    }
 
 
+    var query="http://streeteasy.com/for-rent/"+area+"/";
+    if(price_from.length>0 || price_to.length>0){
+        query=query+"price:";
+        if(price_from.length>0)
+            query = query+1*price_from;
+        if(price_to.length>0)
+            query = query+"-"+price_to*1;
+    }
+    if(beds.length>0)
+        query=query+"%7Cbeds:"+beds;
+    if(baths.length>0)
+        query=query+"%7baths"+baths;
 
-    street.download("http://streeteasy.com/for-rent/Noho/price:"+price_from+"-"+price_to+"%7Cbeds:"+beds+"%7Cbaths"+baths, function(data){
+    if(page>1)
+        query=query+"?page="+page;
+
+
+    street.download(query, function(data){
         if (data) {
 
             var $ = cheerio.load(data);
             $('.criteria_count').each(function(){
                 var numResults = $(this).text();
                 console.log(numResults);
-                if(parseInt(numResults) >0){
+                if(parseInt(numResults==0)){
+                    console.log("Found 0 results, trying to render")
+                    res.render('list', {
+                        "list" : new Array(),
+                        "title": "No Result found",
+                        "count": 0
 
-                    console.log("******"+req.body.price_from);
+                    });
+                }
+                if(parseInt(numResults) >0){
                     async.series({
 
                             address: function(callback){
-                                console.log("******"+req.body.price_from);
+
                                 var address = new Array();
                                 var count=0;
                                 $('.details_title').each(function(){
@@ -117,7 +150,15 @@ app.post('/simpleQuery', function(req, res){
                                         'last':last,
                                         'all': details,
                                         'test': req.body.price_from,
-                                        'res': res
+                                        'res': res,
+                                        'total': (parseInt(numResults.replace(",",""))+1),
+                                        'area' :area,
+                                        'price_from': price_from,
+                                        'price_to': price_to,
+                                        'beds': beds,
+                                        'baths': baths,
+                                        'page':page
+
                                     })
 
                             }
@@ -131,19 +172,43 @@ app.post('/simpleQuery', function(req, res){
                                 console.log(separated);
                                 var list=new Array();
                                 for(var i=0; i<results.address.length; i++){
+                                    var pretty = "$"+separated[i].replace("for rent","")
+                                        .replace("bed", "bed,").replace("bath", "bath,")
+                                        .replace(/,s/g, "s,").replace("Furnished", "Furnished,")
+                                        .replace("ft²","ft²,").replace("Rental", " Rental")
+                                        .replace("Condo", " Condo").replace("Listed", "  Listed");
+
                                     list.push(
                                         {'address': results.address[i],
-                                        'detail': separated[i]}
+                                            'detail': pretty
+                                        }
                                     )
                                 }
 
-                                //results.details.res.redirect('/simpleList');
-                                res.render('list', {
-                                    "list" : list,
-                                    "title": "Address List",
-                                    "count": list.length
+                                var count_from = (parseInt(listCount));
+                                var count =(list.length+parseInt(listCount)-1);
+                                if(count>results.details.total){
+                                    count=results.details.total;
+                                    count_from= results.details.total-list.length;
 
-                                });
+                                }
+                                //results.details.res.redirect('/simpleList');
+                                    res.render('list', {
+                                        "list" : list,
+                                        "title": "Address List",
+                                        "count_from": count_from,
+                                        "count": count,
+                                        "total": results.details.total,
+                                        'area' :results.details.area,
+                                        'price_from': results.details.price_from,
+                                        'price_to': results.details.price_to,
+                                        'beds': results.details.beds,
+                                        'baths': results.details.baths,
+                                        'page':results.details.page,
+                                        'listCount':count
+
+
+                                    });
 
 
                             }
