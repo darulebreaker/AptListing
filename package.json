@@ -9,6 +9,7 @@
     "async": ">=0.0.1"
     ,"monk": "*"
     ,"cheerio": "*"
-
+    ,"request":"*"
+    ,"socket.io":"*"
   }
 }

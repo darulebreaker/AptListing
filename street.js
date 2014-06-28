@@ -40,19 +40,22 @@ function extract (url) {
             //    console.log($(e.children));
             //});
 
-
+            console.log(data);
 
             $('.criteria_count').each(function(){
                 var numResults = $(this).text();
                 console.log(numResults);
                 if(parseInt(numResults) >0){
-
+                    $('div.photo').each(function(){
+                    console.log($(this).find('a'));
+                    });
 
                     async.series({
 
                             address: function(callback){
                                 var address = new Array();
                                 var count=0;
+
                                 $('.details_title').each(function(){
 
                                     //console.log($(this).find('h5 a').text().trim());

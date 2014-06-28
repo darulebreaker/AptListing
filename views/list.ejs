@@ -13,9 +13,10 @@
         <div class="span10">
             <h3>Found <%=total %>, showing <%=count_from %> to <%= count %></h3>
             <table class="table table-striped">
-                <tr>  <h1><td>Address</td> <td>Detail</td></h1>
+                <tr>  <h1><td> Photo</td></td><td>Address</td> <td>Detail</td></h1>
                 <tr ng-repeat="entry in entries | filter:query">
-                    <td> {{entry.address}}</td>
+                    <td>  <img src={{entry.photo}}> </td>
+                    <td> <a href="#" data-toggle="modal" data-target="#basicModal" data-id={{entry.url}}>{{entry.address}}</a></td>
                     <td> {{entry.detail}}</td>
 
 
@@ -24,6 +25,8 @@
             </table>
 
             <script>
+
+
                 function increment(){
                     document.getElementById("page").value= (parseInt(document.getElementById("page").value)+1) ;
                 }
@@ -40,6 +43,8 @@
             </script>
             <form name="search criteria"
                   action="/simpleQuery" method="post">
+                <input type='submit' name='Previous Page' onclick="decrement()" value='previous' style='width:72px' />
+                <input type='submit' name='Next Page' onclick="increment()" value='next' style='width:72px' />
                 <input type="hidden" name="area" value=<%=area %>><br>
                 <input type="hidden" name="price_from" value=<%=price_from %>><br>
                 <input type="hidden" name="price_to" value=<%=price_to %>><br>
@@ -47,8 +52,7 @@
                 <input type="hidden" name="baths" value=<%=baths %>><br>
                 <input type="hidden" id ="page" name="page" value=<%=page %>><br>
                 <input type="hidden" id ="listCount" name="listCount" value=<%=listCount %>><br>
-                <input type='submit' name='Previous Page' onclick="decrement()" value='previous' style='width:72px' />
-                <input type='submit' name='Next Page' onclick="increment()" value='next' style='width:72px' />
+
 
 
             </form>
@@ -58,4 +62,31 @@
 
     </div>
 </div>
+</div>
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <span id="address"> <h4> </h4>   </span>   <span id="currentPrice">  <h4></h4></span>
+                <div id="currentPrice">  </div>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+
+            </div>
+            <div class="modal-body">
+                <div id="blockquote"> <h3></h3></div>
+                <div id="gallery"> <h3></h3></div>
+                <div id="price"> <h3></h3></div>
+                <div id="listing_vitals"> <h3></h3></div>
+                <div id="item_rows"> <h3></h3></div>
+                <div id="amenities"><h3></h3> </div>
+                <div id="building"> <h3></h3></div>
+                <div id="transportation"><h3></h3> </div>
+                <div id="schools"> <h3></h3></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+    </div>
 </div>
