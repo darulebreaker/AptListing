@@ -1,0 +1,89 @@
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span id="address"> <h3 class="panel-title"> </h3>   </span>   <span id="currentPrice">  <h3 class="panel-title"></h3></span>
+
+        </div>
+        <div class="panel-body">
+            <div id="blockquote"> <h3></h3></div>
+            <div id="gallery"> <h3></h3></div>
+            <div id="price"> <h3></h3></div>
+            <div id="listing_vitals"> <h3></h3></div>
+            <div id="item_rows"> <h3></h3></div>
+            <div id="amenities"><h3></h3> </div>
+            <div id="building"> <h3></h3></div>
+            <div id="transportation"><h3></h3> </div>
+            <div id="schools"> <h3></h3></div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function list(title, element, values) {
+    var newHTML = [];
+    newHTML.push("<h3>" + title + "</h3>")
+    newHTML.push("<ul>");
+        $.each(values, function (index, value) {
+        newHTML.push('<li>' + value + '</li>');
+        });
+        newHTML.push("</ul>");
+    $(element).html(newHTML.join(""));
+    }
+
+
+    //This function will find the key for the current Image
+    function currentImageKey() {
+    i = jQuery.inArray($('#slideshow').attr('src'), images);
+    return i;
+    }
+
+
+    //This function will move the slideshow forward one
+    function forwardImage() {
+    currentImageKey();
+    if (i < images.length - 1) {
+    changeImage(i + 1);
+    } else {
+    changeImage(0);
+    }
+    }
+
+    var images;
+    $(document).ready(function () {
+    var socket = io.connect(host);
+    socket.on('news', function (data) {
+    console.log(JSON.stringify(data));
+    $('#blockquote').text(data.result.blockquote);
+
+    images = data.result.gallery;
+    var newHTML = [];
+    newHTML.push("<Div id='holder'>");
+        newHTML.push("<img src=" + images[0] + " id='slideshow' /> </Div>");
+    $("#gallery").html(newHTML.join(""));
+    console.log(data.result.address);
+    console.log(data.result.currentPrice);
+    setInterval(forwardImage, 4000);
+    //list("Gallery", "#gallery", data.result.gallery)
+    $('#address h3').text(data.result.address);
+    $('#currentPrice h3').text(data.result.currentPrice);
+    list("Amenities:", "#amenities", data.result.amenities)
+    // $('#price').text(+);
+    list("Info:", "#listing_vitals", data.result.vitals)
+    list("Building:", "#building", data.result.building)
+    list("Transportation", "#transportation", data.result.transportation)
+    list("Schools", "#schools", data.result.schools)
+    // $('#item_rows').text(data.result.price);
+    // $('#amenities').text(data.result.amenities);
+    // $('#building').text(data.result.building);
+    // $('#transportation').text(data.result.transportation);
+    // $('#schools').text(data.result.schools);
+    });
+    //console.log("here")
+    console.log(document.title)
+    socket.emit('getInfo', { url: "/building/"+document.title });
+
+    });
+</script>

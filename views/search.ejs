@@ -1,5 +1,5 @@
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<div class="jumbotron">
+<h4>Search:</h4>
 <form action="/simpleQuery" method="post">
 <label for="area_select">Location</label>
 <select id="area_select" data-placeholder="e.g. Tribeca, Upper West Side, Clinton Hill" name="area" style='width: 450px;' size='1'>
@@ -351,7 +351,6 @@
 <label for="price_from"> Price </label>
 <select id="price_from" name="price_from">
     <option value="">Any</option>
-    <option value="Custom">&raquo; Custom</option>
     <option value="500">$500</option>
     <option value="750">$750</option>
     <option value="1000">$1,000</option>
@@ -375,7 +374,6 @@
 </select>
 To <select id="price_to" name='price_to' >
     <option value="">Any</option>
-    <option value="Custom">&raquo; Custom</option>
     <option value="500">$500</option>
     <option value="750">$750</option>
     <option value="1000">$1,000</option>
@@ -418,5 +416,10 @@ To <select id="price_to" name='price_to' >
     <option value="&gt;=3.5">3.5 or more</option>
     <option value="&gt;=4">4 or more</option>
 </select>
-<input type='submit' name='Submit' value='Submit' style='width:72px' />
+<input type='submit' name='Submit' value='Go>>' style='width:72px' />
 </form>
+
+</div>
+
+<script src="javascripts/search.js"></script>
+

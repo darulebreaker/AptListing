@@ -1,6 +1,6 @@
 
 
-
+<script src="javascripts/list.js"></script>
 
 <div class="container-fluid">
     <div class="row-fluid">
@@ -11,7 +11,7 @@
 
         </div>
         <div class="span10">
-            <h3>Found <%=total %>, showing <%=count_from %> to <%= count %></h3>
+            <h4>Found <%=total %>, showing <%=count_from %> to <%= count %></h4>
             <table class="table table-striped">
                 <tr>  <h1><td> Photo</td></td><td>Address</td> <td>Detail</td></h1>
                 <tr ng-repeat="entry in entries | filter:query">
@@ -24,23 +24,7 @@
 
             </table>
 
-            <script>
 
-
-                function increment(){
-                    document.getElementById("page").value= (parseInt(document.getElementById("page").value)+1) ;
-                }
-                function decrement(){
-                    document.getElementById("page").value= (parseInt(document.getElementById("page").value)-1);
-                    var count_from=parseInt(<%=count_from %>);
-                    var count_to =parseInt(<%=count%>)
-                    var result=count_from- count_to +count_from;
-                    if(result>=1)
-                        document.getElementById("listCount").value= (count_from- count_to +count_from);
-                    console.log(document.getElementById("listCount").value);
-                }
-
-            </script>
             <form name="search criteria"
                   action="/simpleQuery" method="post">
                 <input type='submit' name='Previous Page' onclick="decrement()" value='previous' style='width:72px' />
@@ -90,3 +74,17 @@
         </div>
     </div>
 </div>
+
+<script>function increment() {
+        document.getElementById("page").value = (parseInt(document.getElementById("page").value) + 1);
+    }
+    function decrement() {
+        document.getElementById("page").value = (parseInt(document.getElementById("page").value) - 1);
+        var count_from = parseInt(<%=count_from %>);
+        var count_to =parseInt(
+                <%=count%>);
+        var result=count_from- count_to +count_from;
+        if(result>=1)
+            document.getElementById("listCount").value= (count_from- count_to +count_from);
+        console.log(document.getElementById("listCount").value);
+    }</script>

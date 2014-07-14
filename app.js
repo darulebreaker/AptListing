@@ -35,9 +35,14 @@ app.configure('production', function () {
 
 // Routes
 app.get('/', function (req, res) {
-    res.render('simpleQuery', {"title": "Listing", "list": ""})
+    res.render('search', {"title": "Rental Listing Search", "list": ""})
 });
 
+app.get ('/building/*', function(req, res){
+    //res.send(req.params);
+    res.render('single',{"title": req.params, "list": ""});
+
+});
 app.post('/simpleQuery', function (req, res) {
 
     var area = req.body.area;
@@ -214,9 +219,10 @@ app.post('/simpleQuery', function (req, res) {
 
                                 }
                                 //results.details.res.redirect('/simpleList');
+
                                 res.render('list', {
                                     "list": list,
-                                    "title": "Address List",
+                                    "title": "Rental Listing Result",
                                     "count_from": count_from,
                                     "count": count,
                                     "total": results.details.total,
@@ -229,6 +235,9 @@ app.post('/simpleQuery', function (req, res) {
                                     'listCount': count
 
                                 });
+
+
+
 
 
                             }
@@ -270,7 +279,7 @@ io.on('connection', function (socket) {
         clients[socket.id] = socket;
     });
     dataEmitter.on("gotData", function(data){
-       // console.log("got Data:" +data)
+        console.log("got Data:" +data)
         //console.log("got Data for:" +data.id)
         //console.log(data.gallery);
         var socket = clients[data.id];
@@ -278,7 +287,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('getInfo', function (data) {
-        //console.log(data);
+        console.log(data);
         //console.log(socket.id);
         singlePage.scrape({id:socket.id, query:"http://streeteasy.com"+data.url});
     });
